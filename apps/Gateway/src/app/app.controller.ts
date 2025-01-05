@@ -1,12 +1,18 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+// src/app.controller.ts
+
+import { Controller, Get, Inject } from '@nestjs/common';
+import { ClientProxy } from '@nestjs/microservices';
+import { Observable } from 'rxjs';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    @Inject('MICROSERVICE_CLIENT') private readonly client: ClientProxy
+  ) {}
 
   @Get()
-  getData() {
-    return this.appService.getData();
+  getHello(): Observable<string> {
+    // Send a pattern "hello" to the microservice
+    return this.client.send<string>('hello', { text: 'Hello from Gateway!' });
   }
 }
