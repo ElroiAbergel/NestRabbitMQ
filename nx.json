@@ -36,7 +36,7 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/Gateway-e2e/**/*"]
+      "exclude": ["apps/Gateway-e2e/**/*", "apps/sample-microservice-e2e/**/*"]
     }
   ]
 }
