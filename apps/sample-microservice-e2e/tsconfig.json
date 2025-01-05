@@ -1,12 +1,9 @@
 {
   "extends": "../../tsconfig.base.json",
-  "files": [],
   "types": ["jest", "node"],
+  "files": [],
   "include": [],
   "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
     {
       "path": "./tsconfig.spec.json"
     }
